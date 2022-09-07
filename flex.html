@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+      #wrap {
+      }
+      header {
+        height: 45px;
+        background: #33353f;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <header>
+        <h1>헤더</h1>
+      </header>
+      <div id="con_wrap">
+        <div id="con_up">
+          <section class="s1-1">위-왼쪽</section>
+          <div class="con_up_right">
+            <section class="s1-2">위-오른쪽1</section>
+            <section class="s1-3">위-오른쪽2</section>
+          </div>
+        </div>
+        <div id="con_down">
+          <section class="s2-1">아래-왼쪽</section>
+          <section class="s2-2">아래-오른쪽</section>
+        </div>
+      </div>
+      <style>
+        #con_wrap {
+          border: 2px solid red;
+          display: flex;
+          flex-direction: column;
+          /*높이지정한거 삭제해줌 밑에서 스크립트로 반응형 길이 넣어주기위해*/
+        }
+        #con_up {
+          flex: 2;
+          display: flex;
+        }
+        .s1-1 {
+          flex: 1;
+          background: #4ab8bc;
+        }
+        .con_up_right {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+        }
+        .s1-2 {
+          background: #589dd2;
+          flex: 1;
+        }
+        .s1-3 {
+          background: #ff912f;
+          flex: 1;
+        }
+        #con_down {
+          flex: 1;
+          display: flex;
+        }
+        .s2-1 {
+          background: #589dd2;
+          flex: 1;
+        }
+        .s2-2 {
+          background: #8dca35;
+          flex: 1;
+        }
+      </style>
+      <footer
+        style="
+          height: 100px;
+          background: #33353f;
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+        "
+      >
+        푸터
+      </footer>
+    </div>
+
+    <script>
+      //#con_wrap의 세로길이 구하기
+      var footerTop = $("footer").offset().top; //화면 제일 위헤서부터 푸터까지의 길이
+      console.log(footerTop);
+
+      var con_wrapTop = $("#con_wrap").offset().top; //화면 제일 위헤서부터 con_wrap까지의 길이
+      console.log(con_wrapTop);
+
+      //#con_wrap의 높이
+      var con_wrapHeight = footerTop - con_wrapTop;
+      console.log(con_wrapHeight);
+
+      $("#con_wrap").css({ height: con_wrapHeight }); // 세로길이 지정
+
+      //화면크기를 조절했을때 #con_wrap의 세로 길이 다시 지정
+      $(window).resize(function () {
+        var footerTop = $("footer").offset().top;
+        var con_wrapHeight = footerTop - con_wrapTop;
+        $("#con_wrap").css({ height: con_wrapHeight });
+      });
+    </script>
+  </body>
+</html>

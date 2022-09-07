@@ -1,0 +1,72 @@
+@charset "UTF-8"; /*한글사용시 추가*/
+
+.sub_wrap {
+    background: #EFEFEF;
+}
+.sub_title {
+    background: #fff; 
+    border-bottom: 1px solid #999;   
+}
+.sub_title h2 {
+    text-align: center;
+    line-height: 50px;
+}
+
+
+.sub_con {}
+.sub_con > p {
+    padding: 20px 0 10px 12px;
+    font-size: 14px;
+}
+
+.sub_search {
+    background: #fff;
+    border: 1px solid #999;
+    margin: 0 12px;
+    padding: 25px 17px 17px;
+    border-radius: 5px;
+    position: relative; /*btn 포지션의 기준*/
+}
+
+.sub_search_input {
+    border: none;
+    border-bottom: 1px solid #999;
+    height: 30px;
+    width: calc(100% - 70px);
+    outline: none; /*클릭시 생기는 테두리*/
+    padding-left: 5px;   /*의료진명을 입력하세요를 앞부분 조금 띄우기위해*/
+}
+.sub_search_input::placeholder {
+    color: #999;    
+}
+.sub_search_btn {
+    display: inline-block; /*height를 주기위해*/
+    border: none;
+    width: 50px;
+    background: #666;
+    color: #fff;
+    padding: 8px 12px;
+    font-size: 12px;
+    border-radius: 3px;
+    position: absolute;
+    right: 12px;
+}
+
+.conlist {
+    padding: 20px 6px 0;
+    overflow: hidden;
+}
+.conlist li {
+    width: 50%;
+    padding: 6px;
+    float: left;
+}
+.conlist a {
+    display: block;
+    background: #fff;
+    border: 1px solid #999;
+    height: 100px;
+    border-radius: 2px;
+    text-align: center;
+}
+
